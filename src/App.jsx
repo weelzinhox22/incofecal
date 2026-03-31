@@ -494,7 +494,18 @@ export default function App() {
           animate="center"
           exit="exit"
           transition={slideTransition}
-          style={{ position: 'absolute', width: '100%', height: '100%' }}
+          style={{ position: 'absolute', width: '100%', height: '100%', touchAction: 'none' }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.2}
+          onDragEnd={(e, { offset, velocity }) => {
+            const swipeThreshold = 50
+            if (offset.x < -swipeThreshold) {
+              nextSlide()
+            } else if (offset.x > swipeThreshold) {
+              prevSlide()
+            }
+          }}
         >
           <CurrentSlideComponent slideNumber={currentSlide + 1} goToSlide={goToSlide} />
         </motion.div>
