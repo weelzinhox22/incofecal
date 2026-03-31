@@ -1,0 +1,491 @@
+/* ===========================
+   CSS ANIMATED MEDICAL ILLUSTRATIONS
+   =========================== */
+
+/* --- Animated Pelvic Floor Diagram --- */
+.anim-pelvic {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1;
+  position: relative;
+  margin: 0 auto;
+}
+
+.anim-pelvic .organ-rect {
+  position: absolute;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.25rem;
+  line-height: 1.2;
+  z-index: 2;
+}
+
+.anim-pelvic .organ-rect.reto {
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 50px;
+  background: rgba(26, 54, 93, 0.12);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary-light);
+}
+
+.anim-pelvic .organ-rect.esfinct {
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 36px;
+  background: rgba(45, 138, 110, 0.12);
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.anim-pelvic .organ-rect.puborretal {
+  top: 62%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 36px;
+  background: rgba(221, 107, 32, 0.1);
+  color: var(--color-orange);
+  border: 2px dashed var(--color-orange);
+}
+
+/* Animated arrow going down */
+.anim-pelvic .flow-arrow-down {
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 30px;
+  background: var(--color-primary);
+  z-index: 1;
+}
+
+.anim-pelvic .flow-arrow-down::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--color-primary);
+  animation: arrowPulse 1.5s ease-in-out infinite;
+}
+
+.anim-pelvic .flow-arrow-down2 {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 24px;
+  background: var(--color-accent);
+  z-index: 1;
+}
+
+.anim-pelvic .flow-arrow-down2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--color-accent);
+  animation: arrowPulse 1.5s ease-in-out infinite 0.3s;
+}
+
+/* Contraction indicator animation */
+.anim-pelvic .contraction-wave {
+  position: absolute;
+  top: 44%;
+  width: 100%;
+  height: 2px;
+  z-index: 3;
+}
+
+.anim-pelvic .contraction-wave::before,
+.anim-pelvic .contraction-wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: contractionMove 2s ease-in-out infinite;
+}
+
+.anim-pelvic .contraction-wave::before {
+  left: 18%;
+}
+
+.anim-pelvic .contraction-wave::after {
+  right: 18%;
+  animation-direction: reverse;
+}
+
+@keyframes contractionMove {
+  0%, 100% { transform: translateX(0); opacity: 0.5; }
+  50% { transform: translateX(10px); opacity: 1; }
+}
+
+/* Status label */
+.anim-pelvic .status-label {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  border-radius: var(--radius-xl);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.anim-pelvic .status-label.paradoxal {
+  background: rgba(229, 62, 62, 0.1);
+  color: var(--color-warning);
+}
+
+.anim-pelvic .status-label.normal {
+  background: var(--color-accent-lighter);
+  color: var(--color-accent);
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes arrowPulse {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(3px); }
+}
+
+/* --- Animated Sensitivity Gauge --- */
+.anim-gauge {
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 1.2;
+  position: relative;
+  margin: 0 auto;
+}
+
+.gauge-track {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 8px solid var(--color-border);
+  background: white;
+}
+
+.gauge-fill {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 8px solid transparent;
+  border-top-color: var(--color-warning);
+  border-right-color: var(--color-warning);
+  animation: gaugeRotate 3s ease-in-out infinite;
+}
+
+.gauge-center {
+  position: absolute;
+  top: calc(15% + 30px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.gauge-center .gauge-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-warning);
+}
+
+.gauge-center .gauge-text {
+  font-size: 0.55rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gauge-label {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: center;
+  white-space: nowrap;
+}
+
+@keyframes gaugeRotate {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  50% { transform: translateX(-50%) rotate(30deg); }
+}
+
+/* --- Animated Biofeedback Screen --- */
+.anim-biofeedback {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1.3;
+  background: #1a202c;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.bf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.bf-header span {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bf-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #48bb78;
+  animation: bfBlink 1s ease-in-out infinite;
+}
+
+@keyframes bfBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.bf-wave-container {
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.bf-wave {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 200%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 4px,
+    #48bb78 4px,
+    #48bb78 5px
+  );
+  animation: waveScroll 4s linear infinite;
+}
+
+.bf-wave::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 30%;
+  width: 20px;
+  height: 30px;
+  border: 2px solid #48bb78;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  animation: waveScroll 4s linear infinite;
+}
+
+@keyframes waveScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.bf-emg {
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bf-emg-bar {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  background: #f6ad55;
+  border-radius: 2px 2px 0 0;
+  animation: emgPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes emgPulse {
+  0%, 100% { height: 20%; }
+  25% { height: 70%; }
+  50% { height: 40%; }
+  75% { height: 90%; }
+}
+
+.bf-label {
+  text-align: center;
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Animated Flowchart Arrows --- */
+.flow-animated-arrow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0;
+}
+
+.flow-animated-arrow .arrow-line {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  position: relative;
+}
+
+.flow-animated-arrow .arrow-line::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  border-left: 6px solid var(--color-accent);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.flow-animated-arrow .arrow-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: particleFlow 1.5s ease-in-out infinite;
+}
+
+@keyframes particleFlow {
+  0% { left: 0; opacity: 0; }
+  20% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* --- Multidisciplinary Team Icons --- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-3) 0;
+}
+
+.team-card {
+  text-align: center;
+  padding: var(--space-4) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+  cursor: default;
+}
+
+.team-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.team-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-2);
+  transition: transform var(--transition-base);
+}
+
+.team-card:hover .team-icon {
+  transform: scale(1.1);
+}
+
+.team-icon.fisio { background: rgba(45, 138, 110, 0.12); color: var(--color-accent); }
+.team-icon.psico { background: rgba(128, 90, 213, 0.12); color: #805ad5; }
+.team-icon.nutri { background: rgba(221, 107, 32, 0.12); color: var(--color-orange); }
+.team-icon.medico { background: rgba(26, 54, 93, 0.12); color: var(--color-primary); }
+.team-icon.enferm { background: rgba(229, 62, 62, 0.12); color: var(--color-warning); }
+
+.team-name {
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.15rem;
+}
+
+.team-role {
+  font-size: clamp(0.65rem, 0.9vw, 0.75rem);
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+
+/* Connecting line animation */
+.team-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0;
+}
+
+.team-connector-line {
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  position: relative;
+  animation: connectorPulse 2s ease-in-out infinite;
+}
+
+@keyframes connectorPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
