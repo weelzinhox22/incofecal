@@ -77,7 +77,7 @@ export default function App() {
   const [direction, setDirection] = useState(1)
   const [isAnimating, setIsAnimating] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
-  const [laserActive, setLaserActive] = useState(false)
+  const [laserActive, setLaserActive] = useState(true)
   const [showFullscreenPrompt, setShowFullscreenPrompt] = useState(false)
   const [fontSizeScale, setFontSizeScale] = useState(100)
   const [isDarkMode, setIsDarkMode] = useState(false)

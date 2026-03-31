@@ -122,6 +122,19 @@ body {
   overflow: hidden;
   position: relative;
   background: #0f172a; /* Dark background to see the preview slides */
+  cursor: none !important;
+}
+
+.presentation * {
+  cursor: none !important;
+}
+
+/* Permitir cursor em botões e elementos clicáveis se necessário, 
+   mas como você quer sempre o laser, manteremos none e o laser seguirá o mouse */
+.presentation button, 
+.presentation .nav-dot, 
+.presentation .index-item {
+  cursor: none !important;
 }
 
 /* ===========================
